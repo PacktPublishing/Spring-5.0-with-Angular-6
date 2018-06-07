@@ -16,6 +16,7 @@ public class TopicController {
     @Autowired
     TopicRepository topicRepository;
 
+    @CrossOrigin
     @GetMapping("/topics")
     public List<Topic> searchTopics(@RequestParam("searchString") String searchString) {
         //return topicRepository.findByDescriptionLikeIgnoreCase("%"+searchString+"%");
