@@ -13,4 +13,5 @@ public class PetStoreUser {
     private String name;
     private Long moneyAvailable;
     private String email;
+    private String password;
 }
