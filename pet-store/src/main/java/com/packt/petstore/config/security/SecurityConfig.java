@@ -28,6 +28,9 @@ public class SecurityConfig {
     public SecurityWebFilterChain springSecurityFilterChain(ServerHttpSecurity http) {
         http
                 .authorizeExchange()
+                    .pathMatchers(HttpMethod.POST, "/login").permitAll()
+                    .pathMatchers(HttpMethod.POST, "/logout").permitAll()
+                    .pathMatchers(HttpMethod.POST, "/register").permitAll()
                     .anyExchange().authenticated()
                 .and()
                 .httpBasic().disable()
