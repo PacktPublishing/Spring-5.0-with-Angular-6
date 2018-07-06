@@ -20,7 +20,7 @@ export class AuthService {
       .append("username", email)
       .append("password", password);
 
-      return this.http.post<any>("http://localhost:8080/login", body.toString, this.option)
+      return this.http.post<any>("http://localhost:8080/login", body.toString(), this.option)
         .pipe(map((response) => {
           console.log("Success login!");
           return response;          

@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+
 import { AuthService } from '../auth.service';
+import { first } from 'rxjs/operators';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +16,8 @@ export class LoginComponent implements OnInit {
   
   constructor(
     private fb: FormBuilder,
-    private auth: AuthService
+    private auth: AuthService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -28,7 +32,22 @@ export class LoginComponent implements OnInit {
   }
 
   submitLoginForm() {
-    console.log("Form submitted!!");
+    console.log(this.loginForm.get("email").value + " " + this.loginForm.get("password").value);
+   this.auth.login(this.loginForm.get("email").value, this.loginForm.get("password").value)
+    .pipe(first())
+    .subscribe(
+      pets => {
+        console.log(pets);
+        this.router.navigateByData({
+          url: ['/pets'],
+          data: pets
+        });
+      },
+      error => {
+        console.log(error);
+        console.log("Error login");
+      }
+    )
   }
 
 }
