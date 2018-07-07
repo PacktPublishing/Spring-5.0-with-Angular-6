@@ -46,8 +46,16 @@ export class LoginComponent implements OnInit {
       error => {
         console.log(error);
         console.log("Error login");
+        this.loginError = true;
       }
     )
+  }
+
+  redirectToSignUp() {
+    this.router.navigateByData({
+      url: ['/signup'],
+      data: null
+    });
   }
 
 }

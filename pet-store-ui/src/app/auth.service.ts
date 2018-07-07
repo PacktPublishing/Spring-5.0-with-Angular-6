@@ -26,4 +26,12 @@ export class AuthService {
           return response;          
         }))
   }
+
+  register(email: string, password: string, name: string) {
+    const body = { email: email, password: password, name: name};
+    return this.http.post<any>("http://localhost:8080/register", body)
+      .pipe(map((response) => {
+        return response;
+      }))
+  }
 }

@@ -9,10 +9,12 @@ import { LoginComponent } from './login/login.component';
 import { AuthService } from '../app/auth.service';
 import { PetListComponent } from './pet-list/pet-list.component';
 import "angular2-navigate-with-data";
+import { SignUpComponent } from './sign-up/sign-up.component';
 
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'pets', component: PetListComponent },
+  { path: 'signup', component: SignUpComponent },
   {
     path: '',
     redirectTo: '/login',
@@ -24,7 +26,8 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     LoginComponent,
-    PetListComponent
+    PetListComponent,
+    SignUpComponent
   ],
   imports: [
     BrowserModule,
