@@ -1,4 +1,7 @@
 <h2>Login Form</h2>
+<div *ngIf="loginError" class="alert alert-danger" role="alert">
+  The credentials are incorrect!
+</div>
 <form [formGroup]="loginForm" (ngSubmit)="submitLoginForm()">
   <div class="form-group">
     <label class="center-block">Email:
