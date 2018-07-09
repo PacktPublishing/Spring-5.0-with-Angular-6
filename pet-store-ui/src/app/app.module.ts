@@ -10,6 +10,7 @@ import { AuthService } from '../app/auth.service';
 import { PetListComponent } from './pet-list/pet-list.component';
 import "angular2-navigate-with-data";
 import { SignUpComponent } from './sign-up/sign-up.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -19,7 +20,8 @@ const appRoutes: Routes = [
     path: '',
     redirectTo: '/login',
     pathMatch: 'full'
-  }
+  },
+  { path: '**', component: NotFoundComponent },
 ]
 
 @NgModule({
@@ -27,7 +29,8 @@ const appRoutes: Routes = [
     AppComponent,
     LoginComponent,
     PetListComponent,
-    SignUpComponent
+    SignUpComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
